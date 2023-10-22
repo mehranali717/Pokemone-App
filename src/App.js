@@ -1,8 +1,8 @@
-import { faCodeCompare } from '@fortawesome/free-solid-svg-icons';
+import { faCodeCompare, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { library } from "@fortawesome/fontawesome-svg-core";
 
 import Routes from "./Routes/Routes";
-library.add(faCodeCompare);
+library.add(faCodeCompare, faHeart);
 
 
 function App() {
