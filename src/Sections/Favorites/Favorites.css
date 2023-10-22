@@ -1,0 +1,71 @@
+.favWrapper {
+    padding:0px 25px;
+    width:350px;
+    min-height:100%;
+    position:fixed;
+    background-color:#bfbfbf;
+    right:0;
+    top:0;
+    z-index:1;
+}
+.favHeader {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:2px solid #eaebed;
+}
+.favTitle {
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: capitalize;
+    color:#010f1c;
+    line-height:1.2;
+    margin-bottom:0px;
+    padding:20px 0px;
+}
+.hamburger {
+    background: transparent;
+    color:#010f1c;
+    cursor:pointer;
+    font-size: 22px;
+    font-weight:300;
+}
+.scrollable {
+    height: 530px;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.defaultBtn {
+    border:1px solid #3f3f3f;
+    font-size:16px;
+    text-align:center;
+    width:100%;
+    cursor:pointer;
+    color:#fff;
+    padding:9px 30px;
+    font-weight:500;
+    transition:0.6s;
+    letter-spacing:2px;
+    background-color:#010f1c;
+}
+.favBody {
+    display:flex;
+    padding:20px 0px;
+    border-bottom:1px solid #7f7f7f;
+}
+.itemTitle {
+    color:#010f1c;
+    font-size:15px;
+    color:#010f1c;
+    font-size:15px;
+    padding:0px 15px;
+    margin-bottom:0px;
+}
+.customeBgWithoutHover {
+    background: radial-gradient(95.56% 95.56% at 50% 50%, #fff 0, #bddeff 100%);
+    overflow: hidden;
+}

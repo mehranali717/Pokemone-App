@@ -1,20 +1,22 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useGetPokemonByNameQuery } from "../../Redux/Apis/ApiSlice";
+import { useFavorites } from "../../Hooks/useFavorite";
 
 const PokemonCard =({pokemone})=> {
+    const [favorites, setAddRemovFavorites] = useFavorites("favorites");
     const {data:PokemonData, isLoading:pokemoneLoading} = useGetPokemonByNameQuery(pokemone);
     if(pokemoneLoading) {
         return "isLoading";
     }
+    const isFavorite = favorites.some((favorite) => favorite.name === PokemonData.name);
     return  <div className="border  p-[20px] rounded-lg bg-[#f0f0f0] shadow-xl   w-[400px]">
                 <div className="px-2 py-4">
                 <div className="flex justify-between items-center text-[22px] text-[#333] font-sans font-bold capitalize gap-x-[20px]">
                     <h2 className="block "> {PokemonData.name}</h2>
                     <FontAwesomeIcon
-                    // onClick={()=>{toggleFavorite(PokemonData);dispatch(handleAddRemove(prev=>!prev))}}
+                    onClick={()=>setAddRemovFavorites(PokemonData)}
                     icon="heart"
-                    className={`text-gray-500 float-right cursor-pointer w-[27px] h-[27px]`}
-                    />
+                    className={`float-right cursor-pointer w-[27px] h-[27px] ${isFavorite ? 'text-[red]' : 'text-gray-500'}`}/>
                 </div>
                 <div
                     className="my-[30px] mx-auto w-[150px] h-[150px] 

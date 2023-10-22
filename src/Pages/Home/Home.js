@@ -12,7 +12,7 @@ const Home =()=> {
     return <div className="flex flex-col gap-y-5">
                 <div className="bg-[#f0f0f0] px-6 py-3 rounded-[10px]"><h2 className="text-[20px] text-[#555] font-[500] uppercase">Pokemons</h2></div>
                 <div className="scrollable flex flex-wrap justify-between gap-y-10 heightScroable">
-                    {Pokemones.results.map((pokemone)=><PokemonCard pokemone={pokemone.name}/>)}
+                    {Pokemones.results.map((pokemone, index)=><PokemonCard pokemone={pokemone.name} key={index}/>)}
                 </div>
                 <div className="flex gap-x-5 justify-between self-end">
                 {page > 1 && (
