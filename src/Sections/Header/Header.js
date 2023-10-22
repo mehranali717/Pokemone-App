@@ -1,8 +1,11 @@
-import { Logo } from "../../Components"
+import { Logo, Navbar } from "../../Components"
 
 const Header =()=> {
-    return <>
-            <Logo />
-    </>
+    return <header className="fixed w-[100%] border-gray-200 dark:bg-gray-800 dark:border-gray-700 py-[10px]">
+                <div className="w-[1160px] mx-auto flex justify-between items-center">
+                    <Logo />
+                    <Navbar />
+                </div>
+    </header>
 }
 export default Header;

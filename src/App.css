@@ -1,0 +1,6 @@
+.container {
+    width: 1160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
