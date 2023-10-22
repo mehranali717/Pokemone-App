@@ -8,7 +8,13 @@ endpoints:(builder)=>({
     }),
     getPokemonByName:builder.query({
         query:(name)=>`pokemon/${name}`
-    })
+    }),
+    getGenrations: builder.query({
+        query: () => `generation`,
+      }),
+    getPokemonByGeneration: builder.query({
+    query: (name) => `generation/${name}`
+    }),
 })
 })
-export const {useGetPokemonByPageQuery, useGetPokemonByNameQuery} = apiSlice;
+export const {useGetPokemonByPageQuery, useGetPokemonByNameQuery, useGetGenrationsQuery, useGetPokemonByGenerationQuery} = apiSlice;
