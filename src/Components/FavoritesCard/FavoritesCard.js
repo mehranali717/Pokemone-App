@@ -1,14 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useFavorites } from "../../Hooks/useFavorite";
+import Image from "../Image/Image";
 
 const FavoritesCard =({pokemon})=> {
     const [favorites, setAddRemovFavorites] = useFavorites("favorites");
    return <div className="favBody flex items-center justify-between">
-              <img
-                className="w-24 h-24 mb-3 rounded-full shadow-xl cursor-pointer customeBgWithoutHover"
-                src={pokemon.sprites.front_default}
-                alt="img"
-              />
+              <div className="w-24 h-24 mb-3 rounded-full shadow-xl">
+                  <Image image={pokemon.sprites.front_default}/>
+              </div>
               <div className="flex flex-col">
                 <span className="mb-1 text-md font-medium text-gray-900 dark:text-[#2f2f2f] capitalize">
                   {pokemon.name}

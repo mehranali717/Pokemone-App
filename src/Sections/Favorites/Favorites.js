@@ -5,6 +5,7 @@ import { useFavorites } from "../../Hooks/useFavorite";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import FavoritesCard from "../../Components/FavoritesCard/FavoritesCard";
+import { Button } from "../../Components";
 AOS.init();
 const Favourites = memo(() => {
   const [favorites, setAddRemovFavorites] = useFavorites("favorites");
@@ -47,12 +48,10 @@ const Favourites = memo(() => {
                 <FavoritesCard pokemon={pokemone} key={index} />
               ))}
           </div>
-          <button
-            className="defaultBtn"
+          <Button
+           value="Close"
             onClick={() => setIsDisplay((prev) => !prev)}
-          >
-            Close
-          </button>
+          />
         </div>
       )}
     </>

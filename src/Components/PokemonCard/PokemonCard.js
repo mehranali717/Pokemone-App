@@ -1,6 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useGetPokemonByNameQuery } from "../../Redux/Apis/ApiSlice";
 import { useFavorites } from "../../Hooks/useFavorite";
+import Button from "../Button/Button";
+import Image from "../Image/Image";
 
 const PokemonCard =({pokemone})=> {
     const [favorites, setAddRemovFavorites] = useFavorites("favorites");
@@ -23,11 +25,7 @@ const PokemonCard =({pokemone})=> {
                         p-[5px] bg-white shadow-xl
                         rounded-full"
                 >
-                    <img
-                    className="w-full h-full"
-                    src={PokemonData.sprites.front_default}
-                    alt={PokemonData?.name}
-                    />
+                   <Image image={PokemonData.sprites.front_default} />
                 </div>
                 <div className="py-[20px] border-b flex border-b-[#4f4f4f] justify-between">
                     <h3 className="block text-center text-[18px] text-[#333] font-sans font-bold">
@@ -46,12 +44,7 @@ const PokemonCard =({pokemone})=> {
                     </p>
                 </div>
                 </div>
-                <button
-                // onClick={() => onClick(PokemonData.name)}
-                className="bg-[#111827] hover:bg-[#F6BD0E] text-white font-bold py-2 px-5 rounded-lg text-base mx-auto my-2 transition-colors duration-300 block"
-                >
-                View Details
-                </button>
+                <Button value="View Details" />
   </div>
 }
 export default PokemonCard;
