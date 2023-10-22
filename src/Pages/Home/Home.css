@@ -9,7 +9,7 @@
 
 input {
     background-color: #edf3f8;
-    border: none;
+    border: 2px solid #F6BD0E;
     width: 250px;
     height: 40px;
     padding: 0px 40px;
@@ -23,7 +23,8 @@ input {
     background-position: 5% 50%;
     background-repeat: no-repeat;
 }
-input:focus-visible {
-    width: 280px;
+/* input:focus input:focus-visible {
+    border: 2px solid #F6BD0E !important;
+    outline: 2px solid #F6BD0E !important;
     transition: 0.3s;
-}
+} */
