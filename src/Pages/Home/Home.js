@@ -34,7 +34,7 @@ const Home = () => {
         ) : (
           <div className="flex flex-col gap-5">
             <div className="scrollable flex flex-wrap justify-between gap-y-10 scrollablePokemoneOuter">
-              {Pokemones.results.map((pokemone, index) => (
+              {Pokemones.results.length>0 && Pokemones.results.map((pokemone, index) => (
                 <PokemonCard pokemone={pokemone.name} key={index} />
               ))}
             </div>

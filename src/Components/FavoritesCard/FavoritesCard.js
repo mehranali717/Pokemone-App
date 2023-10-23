@@ -1,9 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useFavorites } from "../../Hooks/useFavorite";
 import Image from "../Image/Image";
+import { handleAddRemove } from "../../Redux/FavoriteSlice/FavoriteSlice";
+import { useDispatch } from "react-redux";
 
 const FavoritesCard =({pokemon})=> {
     const [favorites, setAddRemovFavorites] = useFavorites("favorites");
+    const dispatch = useDispatch();
    return <div className="favBody flex items-center justify-between">
               <div className="w-24 h-24 mb-3 rounded-full shadow-xl">
                   <Image image={pokemon.sprites.front_default}/>
@@ -23,7 +26,7 @@ const FavoritesCard =({pokemon})=> {
                 </span>
               </div>
               <FontAwesomeIcon
-                onClick={()=>setAddRemovFavorites(pokemon)}
+                onClick={()=>{setAddRemovFavorites(pokemon);dispatch(handleAddRemove(prev=>!prev))}}
                 icon="heart"
                 className={`text-[red] cursor-pointer w-[27px] h-[27px] self-start`}
               />

@@ -5,9 +5,12 @@ import Button from "../Button/Button";
 import Image from "../Image/Image";
 import { useNavigate } from "react-router";
 import Loader from "../Loader/Loader";
+import { useDispatch } from "react-redux";
+import { handleAddRemove } from "../../Redux/FavoriteSlice/FavoriteSlice";
 
 const PokemonCard = ({ pokemone, page="" }) => {
   const [favorites, setAddRemovFavorites] = useFavorites("favorites");
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { data: PokemonData, isLoading: pokemoneLoading, error:loadingError, isSuccess:loaded } =
     useGetPokemonByNameQuery(pokemone);
@@ -17,12 +20,12 @@ const PokemonCard = ({ pokemone, page="" }) => {
   const isFavorite = favorites.some(
     (favorite) => favorite.name === PokemonData.name
   );
-  const imageSrcs = [
-    PokemonData.sprites.back_default,
-    PokemonData.sprites.back_shiny,
-    PokemonData.sprites.front_default,
-    PokemonData.sprites.front_shiny,
-  ];
+    const imageSrcs = [
+      PokemonData.sprites?.back_default,
+      PokemonData.sprites?.back_shiny,
+      PokemonData.sprites?.front_default,
+      PokemonData.sprites?.front_shiny,
+    ];
   const viewDetailHandler =(name)=> {
         navigate(`/detail/${name}`,{
             state: {
@@ -33,12 +36,12 @@ const PokemonCard = ({ pokemone, page="" }) => {
   return (
     <>
     {loadingError && <h1 className="text-[red] font-bold text-[20px]">Error While Loading Data</h1>}
-    {loaded && <div className="border  p-[20px] rounded-lg bg-[#f0f0f0] shadow-xl   w-[400px]">
+    {(loaded && PokemonData) && <div className="border  p-[20px] rounded-lg bg-[#f0f0f0] shadow-xl   w-[400px]">
       <div className="px-2 py-4">
         <div className="flex justify-between items-center text-[22px] text-[#333] font-sans font-bold capitalize gap-x-[20px]">
           <h2 className="block "> {PokemonData.name}</h2>
           <FontAwesomeIcon
-            onClick={() => setAddRemovFavorites(PokemonData)}
+            onClick={() => {setAddRemovFavorites(PokemonData);dispatch(handleAddRemove(prev=>!prev))}}
             icon="heart"
             className={`float-right cursor-pointer w-[27px] h-[27px] ${
               isFavorite ? "text-[red]" : "text-gray-500"
@@ -50,7 +53,7 @@ const PokemonCard = ({ pokemone, page="" }) => {
                         p-[5px] bg-white shadow-xl
                         rounded-full"
         >
-          <Image image={PokemonData.sprites.front_default} />
+          <Image image={PokemonData.sprites?.front_default} />
         </div>
         <div className="py-[20px] border-b flex justify-between">
           <h3 className="block text-center text-[18px] text-[#333] font-sans font-bold capitalize">

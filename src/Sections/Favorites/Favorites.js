@@ -9,6 +9,7 @@ import { Button } from "../../Components";
 AOS.init();
 const Favourites = memo(() => {
   const [favorites, setAddRemovFavorites] = useFavorites("favorites");
+  console.log({favorites});
   const [isDisplay, setIsDisplay] = useState(false);
   return (
     <>
