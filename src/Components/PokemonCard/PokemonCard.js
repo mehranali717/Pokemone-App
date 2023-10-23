@@ -4,15 +4,15 @@ import { useFavorites } from "../../Hooks/useFavorite";
 import Button from "../Button/Button";
 import Image from "../Image/Image";
 import { useNavigate } from "react-router";
+import Loader from "../Loader/Loader";
 
 const PokemonCard = ({ pokemone, page="" }) => {
   const [favorites, setAddRemovFavorites] = useFavorites("favorites");
   const navigate = useNavigate();
-  const { data: PokemonData, isLoading: pokemoneLoading } =
+  const { data: PokemonData, isLoading: pokemoneLoading, error:loadingError, isSuccess:loaded } =
     useGetPokemonByNameQuery(pokemone);
-  console.log({ PokemonData });
   if (pokemoneLoading) {
-    return "isLoading";
+    return <Loader />;
   }
   const isFavorite = favorites.some(
     (favorite) => favorite.name === PokemonData.name
@@ -31,7 +31,9 @@ const PokemonCard = ({ pokemone, page="" }) => {
         });
   }
   return (
-    <div className="border  p-[20px] rounded-lg bg-[#f0f0f0] shadow-xl   w-[400px]">
+    <>
+    {loadingError && <h1 className="text-[red] font-bold text-[20px]">Error While Loading Data</h1>}
+    {loaded && <div className="border  p-[20px] rounded-lg bg-[#f0f0f0] shadow-xl   w-[400px]">
       <div className="px-2 py-4">
         <div className="flex justify-between items-center text-[22px] text-[#333] font-sans font-bold capitalize gap-x-[20px]">
           <h2 className="block "> {PokemonData.name}</h2>
@@ -132,7 +134,9 @@ const PokemonCard = ({ pokemone, page="" }) => {
         </>}
       </div>
       {((page !== "detail") && (page !== "comparison" ))&&<Button value="View Details" onClick={()=>viewDetailHandler(PokemonData.name)}/>}
-    </div>
+    </div>}
+    </>
+    
   );
 };
 export default PokemonCard;

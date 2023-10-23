@@ -7,3 +7,4 @@ export {default as Button} from "./Button/Button";
 export {default as Input} from "./Input/Input";
 export {default as PageTitle} from "./PageTitle/PageTitle";
 export {default as FontAwsom} from "./FontAwsom/FontAwsom";
+export {default as Loader} from "./Loader/Loader";
