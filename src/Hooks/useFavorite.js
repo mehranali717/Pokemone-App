@@ -14,9 +14,9 @@ export function useFavorites(key) {
   const setAddRemovFavorites = (item) => {
     let data = JSON.parse(localStorage.getItem(key));
     if (data) {
-      let res = data.some((ele) => ele.id === item.id);
-      if (res) {
-        let filterData = data.filter((ele) => ele.id !== item.id);
+      let result = data.some((pokemone) => pokemone.id === item.id);
+      if (result) {
+        let filterData = data.filter((pokemone) => pokemone.id !== item.id);
         localStorage.setItem(key, JSON.stringify(filterData));
         setFavorites(filterData);
       } else {

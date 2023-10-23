@@ -6,9 +6,6 @@ const Sidebar = () => {
     const navigate = useNavigate()
   const { data: pokemoneGenerations, isLoading: generationsLoading, error:loadingError, isSuccess:loaded } =
   useGetGenrationsQuery("");
-  if (generationsLoading) {
-    return "Loading...";
-  }
   const onClick = (name) => {
     navigate("genration", {
       state: {

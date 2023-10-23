@@ -1,6 +1,7 @@
 import { Navigate, useRoutes } from "react-router-dom";
 import React, { Suspense } from "react";
 import MainLayout from "../Layouts/MainLayout/MainLayout";
+import { Loader } from "../Components";
 
 const Home = React.lazy(() => import('../Pages/Home/Home'));
 const PokemoneDetail = React.lazy(() => import('../Pages/PokemoneDetail/PokemoneDetail'));
@@ -20,7 +21,7 @@ const Routes =()=>{
             ]
         }
     ])
-    return <Suspense fallback={<div>Loading...</div>} >
+    return <Suspense fallback={<div><Loader /></div>} >
         {routes}
     </Suspense>
 }
