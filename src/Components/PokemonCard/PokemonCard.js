@@ -36,10 +36,10 @@ const PokemonCard = ({ pokemone, page="" }) => {
   return (
     <>
     {loadingError && <h1 className="text-[red] font-bold text-[20px]">Error While Loading Data</h1>}
-    {(loaded && PokemonData) && <div className="border  p-[20px] rounded-lg bg-[#f0f0f0] shadow-xl   w-[400px]">
-      <div className="px-2 py-4">
+    {(loaded && PokemonData) && <div className="border border-1 border-[#F6BD0E]  p-[20px] rounded-lg bg-[#f0f0f0] shadow-xl   w-[400px]">
+      <div className="px-2 py-4 ">
         <div className="flex justify-between items-center text-[22px] text-[#333] font-sans font-bold capitalize gap-x-[20px]">
-          <h2 className="block "> {PokemonData.name}</h2>
+          <h2 className="block border-1 hover:text-[#F6BD0E]"> {PokemonData.name}</h2>
           <FontAwesomeIcon
             onClick={() => {setAddRemovFavorites(PokemonData);dispatch(handleAddRemove(prev=>!prev))}}
             icon="heart"
@@ -50,7 +50,7 @@ const PokemonCard = ({ pokemone, page="" }) => {
         </div>
         <div
           className="my-[30px] mx-auto w-[150px] h-[150px] 
-                        p-[5px] bg-white shadow-xl
+                        p-[5px] bg-white shadow-xl border-[1px] border-[#F6BD0E]
                         rounded-full"
         >
           <Image image={PokemonData.sprites?.front_default} />

@@ -9,7 +9,6 @@ import { Button } from "../../Components";
 AOS.init();
 const Favourites = memo(() => {
   const [favorites, setAddRemovFavorites] = useFavorites("favorites");
-  console.log({favorites});
   const [isDisplay, setIsDisplay] = useState(false);
   return (
     <>
@@ -17,7 +16,7 @@ const Favourites = memo(() => {
         onClick={() => {
           setIsDisplay((prev) => !prev);
         }}
-        className=" flex items-center gap-3 text-[#2b2f32] text-[#ffffff] hover:text-[#fcf903] cursor-pointer"
+        className=" flex items-center gap-3 text-[#2b2f32] text-[#ffffff] hover:text-[#F6BD0E] cursor-pointer"
       >
         <div className="relative">
           <FontAwesomeIcon
@@ -28,7 +27,7 @@ const Favourites = memo(() => {
             {favorites.length}
           </span>
         </div>
-        <span className="text-[#fff] hover:text-[#fcf903] font-[500] text-[23px] capitalize">
+        <span className="text-[#fff] hover:text-[#F6BD0E] font-[500] text-[23px] capitalize">
           Favourites
         </span>
       </div>

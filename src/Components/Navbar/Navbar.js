@@ -8,7 +8,7 @@ const Navbar =()=> {
     ]
     return <nav className="w-[400px] ">
                 <ul className="flex justify-between">
-                    {navItems.map((item, index)=> <li className="font-[600] text-[23px] text-[#fff] capitalize" key={index}><Link to={item.url}><FontAwesomeIcon icon={item.icon} className="pe-2"/>{item.title}</Link></li>)}
+                    {navItems.map((item, index)=> <li className="font-[600] hover:text-[#F6BD0E] text-[23px] text-[#fff] capitalize" key={index}><Link to={item.url}><FontAwesomeIcon icon={item.icon} className="pe-2"/>{item.title}</Link></li>)}
                     <Favourites />
                 </ul>
             </nav>
