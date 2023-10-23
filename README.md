@@ -44,8 +44,59 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+## installations
+
+### npm i
+run npm i command in terminal of editor for installations
+
+
+
+## Implementations 
+
+
+### react-select
+
+used react select for typeable Select component.
+
+### react-router-dom
+
+used react-router-dom for routing and navigation.
+
+### Tailwend css
+
+used tailwend css for styling.
+
+### @fortawesome/fontawesome-free
+
+used Fontawsom lib to use FontAwsoms.
+
+###  react-redux
+
+used react redux to manage state.
+
+### @reduxjs/toolkit
+
+used  Redux to communicate with backend.
+
+### react-spinners
+
+used react spinners for good user experience.
+
+### aos 
+
+used aos for animation.
+
+### Rtk Query
+
+uses rtk Query logics to interact with backend.
+
+### Custom Hook
+
+uses custom hook to manage local storag for adding and removing pokemon to and from favorit list.
 
 ### Code Splitting
+
+uses code splitting to load pages dynamicaly at runtime.
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
