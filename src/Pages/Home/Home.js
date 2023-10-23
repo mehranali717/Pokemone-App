@@ -20,7 +20,7 @@ const Home = () => {
     <div className="flex flex-col gap-y-5">
       <div className="flex justify-between items-center">
         <PageTitle title="Pokemon" />
-        <Input onChange={(e) => handleFilter(e.target.value)} />
+        <Input onChange={(e) => handleFilter(e.target.value)} placeholder="Search..."/>
       </div>
         {pokemoneToSearch.length > 0 ? (
           <div className="flex flex-col gap-5">

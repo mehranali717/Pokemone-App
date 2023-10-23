@@ -3,6 +3,7 @@ import { useGetAllPokemonQuery } from '../../Redux/Apis/ApiSlice';
 import "./Comparison.css"
 import { useState } from 'react';
 import { PokemonCard } from '../../Components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Comparison = () => {
     const [pokemon1ToSearch, setPokemone1ToSearch] = useState("");
@@ -25,6 +26,7 @@ return (
       </div>
       <div className='flex justify-between'>
         {pokemon1ToSearch && <PokemonCard pokemone={pokemon1ToSearch} page='comparison'/>}
+        {pokemon1ToSearch && pokemon2ToSearch && <FontAwesomeIcon icon="code-compare" className='mt-[40vh] w-[40px] h-[40px]'/>}
         {pokemon2ToSearch && <PokemonCard pokemone={pokemon2ToSearch} page='comparison'/>}
       </div>
     </div>
