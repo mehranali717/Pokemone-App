@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button, Input, PageTitle, PokemonCard } from "../../Components";
 import { useGetPokemonByPageQuery } from "../../Redux/Apis/ApiSlice";
-import "./Home.css";
 import Loader from "../../Components/Loader/Loader";
 
 const Home = () => {
@@ -51,7 +50,7 @@ const Home = () => {
           </div>
           {pokemoneToSearch.length > 0 || searched ? (
             <div className="flex flex-col gap-5">
-              <div className="scrollable flex flex-wrap justify-between gap-y-10 scrollablePokemoneOuter">
+              <div className="scrollable flex flex-wrap justify-between gap-y-10">
                 {pokemoneToSearch.length > 0 ? (
                   pokemoneToSearch.map((pokemone, index) => (
                     <PokemonCard pokemone={pokemone.name} key={index} />
@@ -63,7 +62,7 @@ const Home = () => {
             </div>
           ) : (
             <div className="flex flex-col gap-5">
-              <div className="scrollable flex flex-wrap justify-between gap-y-10 scrollablePokemoneOuter">
+              <div className="scrollable flex flex-wrap justify-between gap-y-10">
                 {Pokemones.results.length > 0 &&
                   Pokemones.results.map((pokemone, index) => (
                     <PokemonCard pokemone={pokemone.name} key={index} />

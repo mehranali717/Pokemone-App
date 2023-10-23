@@ -24,7 +24,7 @@ const Generation = () => {
       {loadingError && <h1 className="text-[red] font-bold text-[20px]">Error While Loading Data</h1>}
       {isSuccess && (
        <>
-         <div className="scrollable flex flex-wrap justify-between gap-y-10 scrollablePokemoneOuter">
+         <div className="scrollable flex flex-wrap justify-between gap-y-10">
           {pokemonByGeneration.pokemon_species.length > 0 && pokemonByGeneration.pokemon_species.slice(startIndex, lastIndex).map((pokemone, index) => (
             <PokemonCard pokemone={pokemone.name} key={index} />
           ))}
