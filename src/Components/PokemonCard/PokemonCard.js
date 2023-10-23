@@ -66,7 +66,7 @@ const PokemonCard = ({ pokemone, page="" }) => {
             {toKilograms(PokemonData.weight)} kg
           </span>
         </div>
-        {(page === "detail" )&& <>
+        {(page === "detail" || page === "comparison" )&& <>
         <div className="py-[20px] border-b">
           <h3 className="block pb-[15px] text-center text-[18px] text-[#333] font-sans font-bold">
             Types
@@ -131,7 +131,7 @@ const PokemonCard = ({ pokemone, page="" }) => {
         </div>
         </>}
       </div>
-      <Button value="View Details" onClick={()=>viewDetailHandler(PokemonData.name)}/>
+      {((page !== "detail") && (page !== "comparison" ))&&<Button value="View Details" onClick={()=>viewDetailHandler(PokemonData.name)}/>}
     </div>
   );
 };

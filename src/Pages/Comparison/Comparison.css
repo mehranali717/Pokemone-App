@@ -1,0 +1,9 @@
+.hideScrollLines ::-webkit-scrollbar {
+    width: 0 !important;
+}
+
+/* Show the dropdown without scrollbars */
+.hideScrollLines .select__menu {
+    max-height: none;
+    overflow: visible;
+}

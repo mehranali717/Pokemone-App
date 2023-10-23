@@ -6,6 +6,9 @@ endpoints:(builder)=>({
     getPokemonByPage:builder.query({
         query:(page)=>`pokemon/?offset=${(page - 1) * 6}&limit=6`
     }),
+    getAllPokemon: builder.query({
+        query:()=>`pokemon`
+    }),
     getPokemonByName:builder.query({
         query:(name)=>`pokemon/${name}`
     }),
@@ -17,4 +20,4 @@ endpoints:(builder)=>({
     }),
 })
 })
-export const {useGetPokemonByPageQuery, useGetPokemonByNameQuery, useGetGenrationsQuery, useGetPokemonByGenerationQuery} = apiSlice;
+export const {useGetPokemonByPageQuery, useGetAllPokemonQuery, useGetPokemonByNameQuery, useGetGenrationsQuery, useGetPokemonByGenerationQuery} = apiSlice;
