@@ -1,5 +1,6 @@
+import { memo } from "react";
 import "./Input.css";
 const Input =(props)=> {
     return <input {...props}/>
 }
-export default Input;
+export default memo(Input);

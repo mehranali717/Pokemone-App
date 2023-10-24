@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { Button, Input, PageTitle, PokemonCard } from "../../Components";
 import { useGetPokemonByPageQuery } from "../../Redux/Apis/ApiSlice";
 import Loader from "../../Components/Loader/Loader";
@@ -13,7 +13,8 @@ const Home = () => {
     isSuccess,
     error: loadingError,
   } = useGetPokemonByPageQuery(page);
-  const handleFilter = (name) => {
+  const handleFilter = useCallback((e) => {
+    const name = e.target.value;
     if(name !==""){
       const pokemon = Pokemones.results.filter((pokemone) =>
       pokemone.name.trim().toLowerCase().includes(name.trim().toLowerCase())
@@ -30,7 +31,7 @@ const Home = () => {
       setPokemoneToSearch([]);
     }
     
-  };
+  }, [Pokemones]);
   return (
     <>
       {isLoading && <Loader />}
@@ -44,7 +45,7 @@ const Home = () => {
           <div className="flex justify-between items-center">
             <PageTitle title="Pokemon" />
             <Input
-              onChange={(e) => handleFilter(e.target.value)}
+              onChange={handleFilter}
               placeholder="Search..."
             />
           </div>
@@ -63,7 +64,7 @@ const Home = () => {
           ) : (
             <div className="flex flex-col gap-5">
               <div className="scrollable flex flex-wrap justify-between gap-y-10">
-                {Pokemones.results.length > 0 &&
+                {Pokemones && Pokemones.results.length > 0 &&
                   Pokemones.results.map((pokemone, index) => (
                     <PokemonCard pokemone={pokemone.name} key={index} />
                   ))}
