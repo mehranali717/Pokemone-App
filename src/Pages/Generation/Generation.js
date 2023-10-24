@@ -3,6 +3,7 @@ import { useGetPokemonByGenerationQuery } from "../../Redux/Apis/ApiSlice";
 import { Button, PageTitle, PokemonCard } from "../../Components";
 import Loader from "../../Components/Loader/Loader";
 import { useState } from "react";
+import { CardWrapper } from "../../Sections";
 
 const Generation = () => {
   const location = useLocation();
@@ -24,11 +25,11 @@ const Generation = () => {
       {loadingError && <h1 className="text-[red] font-bold text-[20px]">Error While Loading Data</h1>}
       {isSuccess && (
        <>
-         <div className="flex flex-wrap justify-between gap-y-10">
+         <CardWrapper>
           {pokemonByGeneration.pokemon_species.length > 0 && pokemonByGeneration.pokemon_species.slice(startIndex, lastIndex).map((pokemone, index) => (
             <PokemonCard pokemone={pokemone.name} key={index} />
           ))}
-        </div>
+        </CardWrapper>
         <div className="flex gap-x-5 justify-between self-end">
             {page > 1 && (
               <Button value="Prev" onClick={() => setPage(page - 1)} />
