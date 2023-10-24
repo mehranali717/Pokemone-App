@@ -51,7 +51,7 @@ const Home = () => {
           </div>
           {pokemoneToSearch.length > 0 || searched ? (
             <div className="flex flex-col gap-5">
-              <div className="scrollable flex flex-wrap justify-between gap-y-10">
+              <div className=" flex flex-wrap justify-between gap-y-10">
                 {pokemoneToSearch.length > 0 ? (
                   pokemoneToSearch.map((pokemone, index) => (
                     <PokemonCard pokemone={pokemone.name} key={index} />
@@ -63,7 +63,7 @@ const Home = () => {
             </div>
           ) : (
             <div className="flex flex-col gap-5">
-              <div className="scrollable flex flex-wrap justify-between gap-y-10">
+              <div className=" flex flex-wrap justify-between gap-y-10">
                 {Pokemones && Pokemones.results.length > 0 &&
                   Pokemones.results.map((pokemone, index) => (
                     <PokemonCard pokemone={pokemone.name} key={index} />

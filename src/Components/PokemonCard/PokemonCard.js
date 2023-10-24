@@ -43,6 +43,7 @@ const PokemonCard = ({ pokemone, page="" }) => {
           <FontAwesomeIcon
             onClick={() => {setAddRemovFavorites(PokemonData);dispatch(handleAddRemove(prev=>!prev))}}
             icon="heart"
+            title={`${isFavorite?"Remove from Favorit":"Add to Favorit"}`}
             className={`float-right cursor-pointer w-[27px] h-[27px] ${
               isFavorite ? "text-[red]" : "text-gray-500"
             }`}
